@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+    <meta charset = 'utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> TP Aço II </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Adds Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Adds JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <!-- Bootstrap bundle-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- SVG.js for drawings-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script>
+    <!-- Stylesheet CSS-->
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    
+    </head>
+
+    <body>
+        <div class = 'shadow m-3 container-fluid bg-light border border-dark rounded'>
+            <div class = 'row justify-content-center'>
+                   <span class='head-title'>
+                       Projeto Aço II
+                   </div>
+                </div>     
+        </div>
+        <div class = "container-fluid bg-alert list-inline">
+            <div class='container rounded shadow list-inline-item explicacao border border-dark'>
+                Este programa visa dimensionar uma estrutura de edifício com lajes, vigas e pilares mistos de aço
+                e concreto. <br> Cada pavimento será construído por módulos típicos com vigas mistas secundárias apoiando
+                em vigas mistas principais, e estas por sua vez apoiadas em pilares mistos de aço e concreto. <br>
+                Os módulos tem direções e dimensões como explicados na imagem ao lado.
+            </div>
+            <span class = "container bg-alert rounded">
+                <img class = "list-inline-item" id = 'des_explicacao'src = 'Img/moduloex.JPG'alt='Módulos Exemplo'>
+            </span>
+
+        </div>
+           
+        <div class = 'Etapa1'>
+            <div class =  'container border border-dark rounded carregamento container-fluid bg-etapa1 mt-2 shadow'>
+                <div class= "text-center p-3"> 
+                    <h3>Dimensionamento da Laje Mista e definições de carregamento </h3><br/>
+                </div>
+                <form class="form-check" id='formEtapa1'>
+                        <div class= "container list-inline d-flex justify-content-around mt-3">
+                            <div class = "list-inline-item">
+                                <div class = "list-inline">
+                                    <div class="list-inline-item input-group input-short">
+                                        <div class = 'input-group-prepend'>
+                                                <span class="list-inline-item input-group-text custom-prepend">H do módulo:</span>
+                                        </div>   
+                                        <input type='number'class=' form-control' id ='h_total' required />
+                                        <div class = "list-inline-item input-group-append">
+                                            <span class = "input-group-text">metros</span>
+                                        </div>
+                                    </div>                      
+                                </div>      
+                            </div>
+                            <div class = "list-inline-item">
+                                <div class="list-inline-item input-group input-short">
+                                        <div class = 'input-group-prepend'>
+                                            <span class="list-inline-item input-group-text custom-prepend">V do módulo:</span>
+                                        </div>   
+                                        <input type='number'class=' form-control' id ='v_total' required />
+                                        <div class = "list-inline-item input-group-append">
+                                            <span class = "input-group-text">metros</span>
+                                        </div>
+                                </div>
+                            </div>
+                            <!--<div class = "list-inline-item">
+                                    <div class="list-inline-item input-group input-short">
+                                            <div class = 'input-group-prepend'>
+                                                <span class="list-inline-item input-group-text custom-prepend">Distância L:</span>
+                                            </div>   
+                                            <input type='number'class=' form-control' id ='l_viga' required />
+                                            <div class = "list-inline-item input-group-append">
+                                                <span class = "input-group-text">metros</span>
+                                            </div>
+                                    </div>
+                            </div>-->
+                            <div class="input-short list-inline-item input-group-append">
+                                <span class="input-group-text custom-prepend">Sobrecarga:</span>
+                                <input type="number" class="form-control" id="sobrecarga" required />
+                                <div class = " list-inline-item input-group-append">
+                                    <span class="input-group-text"> KN/m²</span>
+                                </div>
+                            </div>     
+                        </div>
+                        <!--<div class="list-inline container d-flex justify-content-around mt-3">
+                            <div class="list-inline-item input-group-append custom-preprend">
+                               <span class="input-group-text custom-prepend">Direção das vigas:</span>
+                               <select class="form-control" id ='direcao' disabled>
+                                    <option value = 'Horizontal'>Horizontal</option>
+                                    <option value = 'Vertical'>Vertical</option>
+                                </select> 
+                            </div>
+                                
+                        </div> -->                          
+                </form>
+                <div class="form-check list-inline d-flex justify-content-center mt-3">
+                    <span class="list-inline-item">
+                        <input type='checkbox' id = 'memoriaEtapa1' class="form-check-input">
+                    </span>
+                    <span class="list-inline-item">
+                        <label class="form-check-label custom-label" for="memoriaEtapa1">Apresentar memória de cálculo</label>
+                    </span>  
+                </div> 
+                <div class= "d-flex justify-content-center mt-3">
+                    <input type='button' class= "btn btn-primary btn-lg mb-4" onclick = 'calcEtapa1()'  value='Definir carregamento'>
+                </div>
+            </div>
+            <div id = "display_drawing1" class =  "container bg-light rounded shadow mt-2 mb-2 d-none">
+                <div class="row justify-content-center" id="laje_mista_title">
+                </div>
+                <div class="row">
+                    <div class ="drawing-mid col bg-alert pl-3" id="drawing-laje">
+                    <!-- SVG code represented in drawings.js code -->
+                    </div>
+                    <div class='drawing-mid col bg-light justify-content-center' id="drawing-laje-detalhe">
+                        <div>Desenho detalhado da laje mista - Em construção -</div>
+                    </div>
+                </div>
+            <div class="row m-3"  id="laje_mista_ot">
+            </div>
+        </div>
+                
+
+            </div>
+            <div class="container alert alert-info d-none" role="alert" id="memory1_div">
+                <div id="memory1">
+                </div>
+            </div>
+            <div class="d-flex justify-content-around list-inline">
+                <div class='container rounded bg-drawing shadow mt-5 list-inline-item pb-3' style="max-width:30%">
+                    <a class = 'titulodesenho row justify-content-center'> Viga VMS</a>
+                    <div class = 'row' id="drawing_load_vms" height="500px">
+                            <!-- JS code for drawing VMS beams inside drawings.js -->
+                    </div>
+                    <div class="row input-group list-inline d-flex justify-content-center mt-4">
+                        <div class="input-group-prepend list-inline-item">
+                            <span class = 'input-group-text custom-prepend'> Mmax VMS =</span>
+                        </div>
+                        <div class="list-inline-item" style="width:80px">
+                            <input class='form-control' id='mmaxVMS' disabled/>
+                        </div>
+                        <div class = "list-inline-item input-group-append">
+                            <span class="input-group-text">KN/m²</span>
+                        </div>
+                    </div>
+                    <div class = "list-inline input-group d-flex justify-content-center">
+                        <div class="input-group-prepend list-inline-item">
+                            <span class="input-group-text custom-prepend"> Vsd VMS=</span>
+                            <div class="list-inline-item" style="width:100px">
+                                <input class="form-control" id="apoioVMS" disabled />
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text"> KN </span>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+                <div class='container rounded bg-drawing shadow mt-5 list-inline-item pb-3' style="max-width:30%">
+                        <a class = 'row titulodesenho justify-content-center'> Viga VMP1</a>
+                        <div class="row" id="drawing_load_vmp1" height="300px">
+                                <!-- JS code for drawing VMS beams inside drawings.js -->
+                        </div>
+                        <div class="row input-group list-inline d-flex justify-content-center mt-4">
+                            <div class="input-group-prepend list-inline-item">
+                                <span class = 'input-group-text custom-prepend'> Mmax VMP1 =</span>
+                            </div>
+                            <div class="list-inline-item" style="width:80px">
+                                <input class='form-control' id='mmaxVMP1' disabled/>
+                            </div>
+                            <div class = "list-inline-item input-group-append">
+                                <span class="input-group-text">KN/m²</span>
+                            </div>
+                        </div>
+                        <div class = "list-inline input-group d-flex justify-content-center">
+                            <div class="input-group-prepend list-inline-item">
+                                <span class="input-group-text custom-prepend"> Vsd VMP1=</span>
+                                <div class="list-inline-item" style="width:100px">
+                                    <input class="form-control" id="apoioVMP1" disabled />
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text"> KN </span>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class='container rounded bg-drawing shadow mt-5 list-inline-item pb-3' style="max-width:30%">
+                            <div class = 'row titulodesenho justify-content-center'> Viga VMP2</div>
+                            <div class="row" id="drawing_load_vmp2" height="300px">
+                                    <!-- Make JS code for drawing VMS beams-->
+                            </div>
+                            <div class="row input-group list-inline d-flex justify-content-center mt-4">
+                                <div class="input-group-prepend list-inline-item">
+                                    <span class = 'input-group-text custom-prepend'> Mmax VMP2 =</span>
+                                </div>
+                                <div class="list-inline-item" style="width:80px">
+                                    <input class='form-control' id='mmaxVMP2' disabled/>
+                                </div>
+                                <div class = "list-inline-item input-group-append">
+                                    <span class="input-group-text">KN/m²</span>
+                                </div>
+                            </div>
+                            <div class = "list-inline input-group d-flex justify-content-center">
+                                <div class="input-group-prepend list-inline-item">
+                                    <span class="input-group-text custom-prepend"> Vsd VMP2=</span>
+                                    <div class="list-inline-item" style="width:100px">
+                                        <input class="form-control" id="apoioVMP2" disabled />
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"> KN </span>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+            </div>
+        </div>
+        <div class ='container-fluid bg-secondary mt-4' style="height:40px"></div>
+        <div class = 'mt-4 container container-fluid bg-light lajes-mistas border border-dark rounded'>
+            <div class='row mt-3 d-flex justify-content-center'>
+                <span  style="font-size:30px">Dimensionamento das Vigas Mistas</span>
+            </div>
+            <div class="row justify-content-center">
+                <h2>Em construção</h2>
+            </div>
+            <div class="container bg-warning">
+                <div class="row">
+                    <div class="col container border border-dark shadow">
+                        <div class="row">
+                            <div class="col">
+                                <div id = "drawing_profile">
+                                    Desenho perfil
+                                    <!--SVG.js code for drawing profile in drawing.js-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">Material 1</div>
+                            <input class="col" disabled />
+                            <div class="col">mm</div>
+                        </div>
+                    </div>
+                    <div class="col container border border-dark shadow" style="width:60%">
+                        Materiais
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Separador -->
+        <div class ='container-fluid bg-secondary mt-4' style="height:40px"></div>
+        <!-- Seção ligações -->
+            <div class = 'container-fluid bg-light mt-3 rounded border border-dark list-inline'>
+                <div class = "container-fluid border border-dark bg-alert m-3">
+                    <div class="row justify-content-around">
+                        <h3>Cálculo das ligações flexíveis da VMS na VMP e da VMP no pilar</h3>
+                    </div>
+                </div>
+                <div class="list-inline-item container border border-dark" style="width:25%">
+                    <div class ='container bg-alert'>
+                        <div class="row justify-content-center">
+                            <a class="col">Materiais:</a>
+                    </div>
+                <div class = "row">
+                    <a class="col">Vigas:</a>
+                    <select class="col" id='viga'>
+                        <option value= 'USI Civil 300'>USI Civil 300</option>
+                        <option value= 'USI Civil 350'>USI Civil 350</option>
+                        <option value= 'USI SAC 300'>USI SAC 350</option>
+                        <option value= 'USI SAC 350'>USI SAC 350</option>
+                        <option value= 'USI FIRE 350'>USI FIRE 350</option>
+                        <option value= 'CSN COR 420'>CSN COR 420</option>
+                        <option value= 'CSN COR 500'>CSN COR 500</option>
+                    </select>
+                    </div>
+                    <div class="row">
+                        <a class="col">Cantoneiras:</a>
+                        <select class="col" id='cantoneira_material'>
+                                <option value = 'ASTM A36'> ASTM A36</option>
+                        </select>
+                    </div>  
+                    <div class="row">
+                        <a class= "col">Parafusos:</a>
+                        <select class="col" id = 'parafuso'>
+                            <option value='ASTM A325'> ASTM A325</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <div class = 'border border-dark list-inline-item container' style="width:30%">
+                        <div class="row justify-content-center">
+                            <a class="col">Disposições construtivas:</a>
+                        </div>
+                        <div class="row">
+                            <a class="col">Diâmetro parafusos:</a>
+                            <select class="col" id='db'>
+                                <option value=16>16mm</option>
+                                <option value=19>19mm</option>
+                                <option value=23>23mm</option>
+                            </select> 
+                        </div>
+                        
+                        <div class="row">
+                            <a class="col">Tipo furo:</a>
+                            <select class="col" id='furo'>
+                                <option value= 1.5>Padrão</option>
+                                <option value= 5>Alargado</option>
+                                <option>Pouco alongado</option>
+                                <option>Muito alongado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="row">
+                            <a class="col">Modo parafusamento:</a>
+                            <select>
+                                <option class="col" value= 2 id='parafusamento'>Punção</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                                <a class="col">Espessura cantoneira:</a>
+                                <input type=number value = 9.5 class = 'col input-short' id='cantoneira_espessura'> <a> mm</a>
+                            <br>
+                        </div>
+                        
+                        <div class="row">
+                            <a class="col">Largura cantoneira:</a>
+                            <input type=number value = 102 class = 'col input-short' id='cantoneira_largura'> <a> mm</a>
+                            <br>
+                        </div>
+                        
+                        <div class="row">
+                            <a class="col">Solda Eletrodo:</a>
+                            <select class="col" id='solda'>
+                                <option value=485>E70XX</option>
+                            </select>
+                        </div>
+                        
+                        <div class="row">
+                            <a class="col">Gabarito de furação:</a>
+                            <input type = number value = 65 class='col input-short' id='gabarito'> mm<br>
+                        </div>
+                        
+                        <div class="row">
+                            <a class="col">Distância entre furos:</a>
+                            <input type = number value = 75 class='col input-short' id='eff'> mm<br>
+                        </div>
+                        
+                        <div class="row">
+                            <a class="col">Recorte Horizontal:</a>
+                            <input type = number value = 100 class='col input-short' id='recorte_hor'> mm<br>
+                        </div>
+                        
+                        <div class="row">
+                            <a class="col">Recorte Vertical:</a>
+                            <input type = number value = 30 class='col input-short' id='recorte_ver'>  mm<br>
+                        </div>
+                        
+                </div>
+                <div class=' border border-dark list-inline-item container' style="width:30%">
+                    <div class="row">
+                        <p class="col">Parafusos:</p>
+                    </div>
+                    <div class="row">
+                        <a class="col">N parafusos VMS (max - alterar se necessário):</a>
+                        <input type = number class='col input-short' id='n_paraf_vms'><br>
+                    </div>
+                    
+                    <div class="row">
+                        <a class="col">N parafusos VMP1 (max - alterar se necessário):</a>
+                        <input type = number class='col input_min' id='n_paraf_vmp1'><br>
+                    </div>
+                    
+                    <div class="row">
+                            <p class="col">Tamanho das vigas</p>   
+                    </div>
+
+                    <div class="row">
+                        <a class="col">Dmin VMS e VMP2 (alterar se necessário):</a>
+                        <input type = number class='col input_min' id='d_min_vms'><a> cm</a><br>
+                    </div>
+                    
+                    <div class="row">
+                        <a class="col">tw min VMS e VMP2 (alterar se necessário):</a>
+                        <input type = number class='col input_min' id='tw_min_vms'><a> cm</a><br>
+                    </div>
+                    
+                    <div class="row">
+                        <a class="col">Dmin VMP1 (alterar se necessário):</a>
+                        <input type = number class='col input_min' id='d_min_vmp1'><a> cm</a><br>
+                    </div>
+                   
+                    <div class="row">
+                        <a class="col">tw min VMP1 (alterar se necessário):</a>
+                        <input type = number class='col input_min' id='tw_min_vmp1'><a> cm</a><br>
+                    </div>
+                </div>
+                <div class="row justify-content-center" id='calculo_etapa2'>
+                    <input type='checkbox' id = 'memoriaEtapa2'>Apresentar memória de cálculo
+                </div>
+                <div class="row justify-content-center">
+                    <input type='button'  onclick = 'calcEtapa2()'  value='Calcular ligações'> 
+                </div>
+                    <p id='button_etapa2'></p>  
+                </div>
+                        
+                    
+                    
+            </div>
+        </div>
+        <div class='desenhoEtapa2'>
+            <a>Ligações VMS em VMP1</a><br>
+            <p id='disp_etapa2_vms'>Disposições construtivas:</p>
+            <p id='cis_vms'>Cisalhamento Parafuso:</p>
+            <p id='cont_alma_vms'>Pressão de contato na alma:</p>
+            <p id='cont_cant_vms'>Pressão de contato na cantoneira:</p>
+            <p id='rasg_cant_vms'>Rasgamento da cantoneira:</p>
+            <p id='cis_cant_vms'>Cisalhamento na cantoneira:</p>
+            <p id='cis_viga_vms'>Cisalhamento da viga:</p>
+
+        </div>
+        <div class = 'desenhoEtapa2'>
+            <a>Ligações VMP1 no Pilar</a><br>
+            <p id='disp_etapa2_vmp1'>Disposições construtivas:</p>
+            <a id='cis_vmp1'>Cisalhamento Parafuso</a><br>
+            <a id='cont_alma_vmp1'>Pressão de contato na alma</a><br>
+            <a id='cont_cant_vmp1'>Pressão de contato na cantoneira</a><br>
+            <a id='rasg_cant_vmp1'>Rasgamento da cantoneira</a><br>
+            <a id='cis_cant_vmp1'>Cisalhamento na cantoneira</a><br>
+            <a id='cis_viga_vmp1'>Cisalhamento da viga</a><br>
+
+        </div>
+        <div class = 'desenhoEtapa2'>
+            <a>Ligações VMP2 no Pilar</a><br>
+            <p id='disp_etapa2_vmp2'>Disposições construtivas:</p>
+            <a id='cis_vmp2'>Cisalhamento Parafuso</a><br>
+            <a id='cont_alma_vmp2'>Pressão de contato na alma</a><br>
+            <a id='cont_cant_vmp2'>Pressão de contato na cantoneira</a><br>
+            <a id='rasg_cant_vmp2'>Rasgamento da cantoneira</a><br>
+            <a id='cis_cant_vmp2'>Cisalhamento na cantoneira</a><br>
+            <a id='cis_viga_vmp2'>Cisalhamento da viga</a><br>
+
+        </div>
+        </div>
+        <div class ='separador2'></div>
+        <div class = 'Etapa3'>
+                <div class = 'base_pilar'>
+                        <div>
+                            Cálculo das bases dos pilares mistos
+                        </div>
+                        <div class = 'materiais_etapa3'>
+                            Materiais:
+                            <div>
+                                <a>Placa Base:</a>
+                                <select id='material_placa_base'>
+                                    <option value= 'USI Civil 300'>USI Civil 300</option>
+                                    <option value= 'USI Civil 350'>USI Civil 350</option>
+                                    <option value= 'USI SAC 300'>USI SAC 350</option>
+                                    <option value= 'USI SAC 350'>USI SAC 350</option>
+                                    <option value= 'USI FIRE 350'>USI FIRE 350</option>
+                                    <option value= 'CSN COR 420'>CSN COR 420</option>
+                                    <option value= 'CSN COR 500'>CSN COR 500</option>
+                                </select><br>
+                                <a>Chumbadores:</a>
+                                <select id='material_chumbadores'>
+                                        <option value = 'ASTM A36'> Aço Estrutural ASTM A36</option>
+                                </select><br>
+                                <a>Barra de cisalhamento:</a>
+                                <select id = 'material_barra_cisalhamento'>
+                                        <option value= 'USI Civil 300'>USI Civil 300</option>
+                                        <option value= 'USI Civil 350'>USI Civil 350</option>
+                                        <option value= 'USI SAC 300'>USI SAC 350</option>
+                                        <option value= 'USI SAC 350'>USI SAC 350</option>
+                                        <option value= 'USI FIRE 350'>USI FIRE 350</option>
+                                        <option value= 'CSN COR 420'>CSN COR 420</option>
+                                        <option value= 'CSN COR 500'>CSN COR 500</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class = 'dados_placa_base'>
+                                <a>Dados placa e pilar misto:</a><br>
+                                <a>Espessura placa base:</a>
+                                <select id='espessura_placa_base'>
+                                    <option value=19>19mm</option>
+                                    <option value=23>23mm</option>
+                                </select><br>
+                                <a>Diâmetro chumbador:</a>
+                                <select id='espessura_placa_base'>
+                                    <option value=19>19mm</option>
+                                    <option value=23>23mm</option>
+                                </select><br>  
+                                <a>Bloco:</a>
+                                <select id='concreto_bloco'>
+                                    <option value= 20>C20</option>
+                                    <option value= 30>C30</option>
+                                </select><br>
+                                <a>Argamassa expansiva:</a>
+                                <select id='argamassa'>
+                                        <option value= 20>C20</option>
+                                        <option value= 30>C30</option>
+                                </select><br> 
+                                <a>Solda Eletrodo:</a>
+                                <select id='solda'>
+                                        <option value=485>E70XX</option>
+                                    </select><br>
+                                <a>Altura placa (H):</a>
+                                <input type = number value = 78 class='input' id='h_placa'><a> cm</a><br> 
+                                <a>Largura placa (B):</a>
+                                <input type = number value = 69 class='input' id='l_placa'><a> cm</a><br>
+                                <a>Bf pilar (alterar se necessário):</a>
+                                <input type = number value=60 class='input' id='bf'><a> cm</a><br>
+                                <a>D pilar (alterar se necessário):</a>
+                                <input type = number value =60 class='input' id='d'><a> cm</a><br>
+                                <a>Comprimento ancoragem:</a>
+                                <input type = number value =25 class='input' id='comprimento_anc'><a> cm</a><br>
+                        </div>
+                        <div class='carac_edificio'>
+                            <a>Características do edifício:</a><br>
+                            <a>Número pavimentos:</a>
+                            <input type = number  class='input' id='n_pav'><br>
+                            <a>Pé direito:</a>
+                            <input type = number  class='input' id='pe_dir'><a> m</a><br>
+                        </div><br>
+                        <div class = 'calculo_etapa3'>
+                            <input type='checkbox' id = 'memoriaEtapa3'>Apresentar memória de cálculo<br>
+                            <input type='button' onclick = 'calcEtapa3()'  value='Calcular base pilar'> 
+                        </div>
+                        </div>      
+                    </div>
+                </div>
+                <div class='desenhoEtapa3'>
+                    <a>Base do Pilar</a><br>
+                    <a id='disp_cont_3'>Disposições construtivas:</a><br>
+                    <a id='con_comp'>Concreto comprimido:</a><br>
+                    <a id='placa_base'>Placa base:</a><br>      
+                </div>
+            
+        </div>
+        <div class ='separador3'></div>
+        <div class = 'Etapa5'>
+            
+        </div>
+        <div class = 'Etapa6'>
+            
+        </div>
+        <div class = 'Etapa7'>
+            
+        </div>
+            <!-- Adds OO classes for beams and slab-->
+            <script src='Classes.js'></script>
+            <!-- Adds JS which contains some calculation and display methods-->
+            <script src='calc.js'></script>
+            <!-- Adds JS which control SVG drawings for the app -->
+            <script src='drawings.js'></script>
+    </body>
+</html>
+
+
+
+

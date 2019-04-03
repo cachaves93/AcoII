@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    float:right;
+    margin-top: -150px;
+    margin-right: 100px;
+    font-size: 80px;
+    
+}
+
+.head-title {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size:50px;
+}
+
+.drawing-mid {
+    width: 40%;
+    height: 380px;
+}
+
+.bg-etapa1 {
+    background-color:#e6e6ff;
+}
+
+.bg-drawing {
+    background-color: #ffe6ff;
+}
+
+.custom-prepend {
+    background-color:#e6f2ff;
+}
+
+.custom-label {
+    font-size:15px;
+}
+.input-short {
+    width: 280px;
+}
+
+.before-input {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.after-input {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif "Trebuchet MS", Helvetica, sans-serif;
+
+}
+
+
+#logo-ufmg {
+    width: 30%;
+    padding: 30px;
+    display: inline;
+}
+
+body {
+    background: #E4E6C3;
+}
+
+
+.header {
+    background: yellow;
+    border: 2px solid red;
+}
+
+.explicacao {
+    height:382px;
+    width:700px;
+    font-family:'Courier New', Courier, monospace;
+    padding-top: 100px;
+    background-color:#f2e6ff;
+}
+
+#des_explicacao {
+    width:698px;
+    height:382px;
+    margin-top: -120px;
+    margin-left: 60px;
+}
+
+#logo {
+    border: 2px solid red;
+    background: pink;
+    height: 200px;
+    width: 500px;   
+}
+
+#titulo {
+    font-size: 5em;
+    margin-top: 30px;
+    border: 2px solid red;
+    float:right;
+    padding-right: 120px;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#memoria1 {
+    background-color:#669999;
+    border: 1px solid black;
+    text-align: left;
+    width: 1000px;
+    margin-left: 260px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.desenhoEtapa1 {
+    width: 400px;
+    height:150px;
+    margin-top: 50px;
+    margin-right:50px;
+    margin-left: 50px;
+    border: 2px solid red;
+    float: left;
+    text-align:center;
+}
+
+.desenhoEtapa2 {
+    width: 400px;
+    height:400px;
+    margin-top: 50px;
+    margin-right:50px;
+    margin-left: 50px;
+    border: 2px solid red;
+    float: left;
+    text-align:center;
+
+}
+
+#memoria2 {
+    background-color:#669999;
+    border: 1px solid black;
+    text-align: left;
+    width: 1000px;
+    margin-left: 260px;
+    margin-top: 10px;
+    padding: 10px;
+    height: 400px;
+    overflow: auto;
+}
+
+.titulodesenho {
+    font-size: 20px;
+}
+
+.resultado {
+    width: 15%;
+    margin-left: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.separador {
+    height:20px;
+    background: yellow;
+    border: 1px solid black;
+    margin-top: 230px;
+}
+
+
+.separador2 {
+    height:20px;
+    background: yellow;
+    border: 1px solid black;
+    margin-top: 500px;
+}
+
+
+.ligacoes {
+    text-align: center;
+    border: 2px solid red;
+    
+}
+
+.dimensoes_etapa2 {
+    border: 2px solid black;
+    float:left;
+    margin-left: 50px;
+    margin-top: 20px;
+    padding: 0px;
+    
+}
+
+#calculo_etapa2 {
+    border: 1px solid yellow;
+    padding: 0px;
+    margin-top: 230px;
+}
+
+.input_min {
+    width: 40px;
+}
+.input {
+    width:15%;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.materiais_etapa2 {
+    border: 2px solid red;
+    float:left;
+    margin-left:60px;
+    margin-right: 120px;
+    margin-top: 30px;
+}
+
+ .dados_ligacoes {
+     border: 2px solid black;
+     float:left;
+     margin-left: 100px;
+ }
+
+
+ .desenhoEtapa3 {
+     height:400px;
+     width: 1000px;
+     border: 2px solid black;
+     margin-left: 250px;
+     margin-top: 160px; 
+     text-align:right;   
+ }
+
+ .materiais_etapa3 {
+    margin-left: 150px;
+    float:left;
+    border: 1px solid red;
+    text-align: center;
+}
+
+.dados_placa_base {
+    margin-left: 150px;
+    float:left;
+    border: 1px solid red;
+    text-align: center;
+}
+
+.carac_edificio {
+    margin-left: 150px;
+    float:left;
+    border: 1px solid red;
+    text-align: center;
+}
+
+.base_pilar {
+    text-align: center;
+}
+
+.calculo_etapa3 {
+    margin-top: 50px;
+}
+
+.separador3 {
+    height:20px;
+    background: yellow;
+    border: 1px solid black;
+    margin-top: 50px;
+
+}
+
+.lajes_mistas {
+    text-align: center;
+}
